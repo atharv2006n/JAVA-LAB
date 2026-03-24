@@ -1,0 +1,80 @@
+A}COUNTER
+import javax.swing.*;
+import java.awt.*;
+public class Counter {
+    int c = 0;
+    public Counter() {
+        JFrame f = new JFrame("Counter");
+        JLabel l = new JLabel("Counter 0");
+        JButton up = new JButton("Up");
+        JButton down = new JButton("Down");
+        JButton reset = new JButton("Reset");
+
+        up.addActionListener(e -> l.setText("Counter " + (++c)));
+        down.addActionListener(e -> l.setText("Counter " + (--c)));
+        reset.addActionListener(e -> { c = 0; l.setText("Counter 0"); });
+
+        f.setLayout(new FlowLayout());
+        f.add(l); f.add(up); f.add(down); f.add(reset);
+
+        f.setSize(250,150);
+        f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    public static void main(String[] args) {
+        new Counter();
+    }
+}
+B}REVERSE 
+import javax.swing.*;
+import java.awt.*;
+
+public class Reverse {
+    public static void main(String[] args) {
+        JFrame f = new JFrame("Reverse");
+        JTextField t = new JTextField(10);
+        JButton b = new JButton("Reverse");
+        JLabel l = new JLabel();
+
+        b.addActionListener(e -> {
+            String s = t.getText();
+            l.setText(new StringBuilder(s).reverse().toString());
+        });
+
+        f.setLayout(new FlowLayout());
+        f.add(t); f.add(b); f.add(l);
+
+        f.setSize(250,150);
+        f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+C}GENDER 
+import javax.swing.*;
+import java.awt.*;
+
+public class Gender {
+    public static void main(String[] args) {
+        JFrame f = new JFrame("Gender");
+        JRadioButton m = new JRadioButton("Male");
+        JRadioButton f1 = new JRadioButton("Female");
+
+        ButtonGroup g = new ButtonGroup();
+        g.add(m); g.add(f1);
+
+        JButton b = new JButton("Submit");
+        JLabel l = new JLabel();
+
+        b.addActionListener(e -> {
+            if (m.isSelected()) l.setText("Male");
+            else if (f1.isSelected()) l.setText("Female");
+        });
+
+        f.setLayout(new FlowLayout());
+        f.add(m); f.add(f1); f.add(b); f.add(l);
+
+        f.setSize(250,150);
+        f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
